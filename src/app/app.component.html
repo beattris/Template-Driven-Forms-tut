@@ -29,22 +29,46 @@
               email
               #email="ngModel"
             />
-            <span class="help-block" *ngIf="!email.valid && email.touched" style="color: red;">Please enter a valid email!!</span>
+            <span
+              class="help-block"
+              *ngIf="!email.valid && email.touched"
+              style="color: red"
+              >Please enter a valid email!!</span
+            >
           </div>
-        </div>  
-        <p *ngIf="!userData.valid && userData.touched">User data is invalid!!</p>
+        </div>
+        <p *ngIf="!userData.valid && userData.touched">
+          User data is invalid!!
+        </p>
         <div class="form-group">
           <label for="secret">Secret Questions</label>
-          <select id="secret" class="form-control" [ngModel]="defaultQuestion" name="secret">
+          <select
+            id="secret"
+            class="form-control"
+            [ngModel]="defaultQuestion"
+            name="secret"
+          >
             <option value="pet">Your first Pet?</option>
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
         <div class="form-group">
-          <textarea name="questionAnswer" rows="3" class="form-control" [(ngModel)]="answer"></textarea>
+          <textarea
+            name="questionAnswer"
+            rows="3"
+            class="form-control"
+            [(ngModel)]="answer"
+          ></textarea>
           <p>Your reply: {{ answer }}</p>
+          <div class="radio" *ngFor="let gender of genders">
+            <label
+              ><input type="radio" name="gender" ngModel [value]="gender" required
+            />{{ gender }}</label>
+          </div>
         </div>
-        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
+          Submit
+        </button>
       </form>
     </div>
   </div>
